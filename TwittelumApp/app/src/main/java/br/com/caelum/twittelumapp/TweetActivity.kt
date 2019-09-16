@@ -11,13 +11,14 @@ class TweetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tweet)
 
-        publicaTweet()
+        btn_publica.setOnClickListener {
+            publicaTweet()
+            finish()
+        }
     }
 
     private fun publicaTweet() {
-        btn_publica.setOnClickListener {
-            val tweet = mensagem.text.toString()
-            Toast.makeText(this, tweet, Toast.LENGTH_LONG).show();
-        }
+        val tweet = mensagem.text.toString()
+        Toast.makeText(this, tweet, Toast.LENGTH_LONG).show()
     }
 }

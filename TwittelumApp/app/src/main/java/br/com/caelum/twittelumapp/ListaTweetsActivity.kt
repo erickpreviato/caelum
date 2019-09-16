@@ -1,5 +1,6 @@
 package br.com.caelum.twittelumapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,9 @@ class ListaTweetsActivity : AppCompatActivity() {
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tweets)
         lista_tweets.adapter = adapter
 
-        fab_add.setOnClickListener { Snackbar.make(lista_tweets, "Carregando...", Snackbar.LENGTH_SHORT).show() }
+        fab_add.setOnClickListener {
+            val intencao = Intent(this, TweetActivity::class.java)
+            startActivity(intencao)
+        }
     }
 }
