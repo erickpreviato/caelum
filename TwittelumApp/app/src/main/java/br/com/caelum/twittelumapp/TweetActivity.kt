@@ -3,13 +3,13 @@ package br.com.caelum.twittelumapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_tweet.*
 
-class MainActivity : AppCompatActivity() {
+class TweetActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_tweet)
 
         publicaTweet()
     }
