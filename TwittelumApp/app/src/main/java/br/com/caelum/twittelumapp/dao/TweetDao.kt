@@ -1,5 +1,6 @@
 package br.com.caelum.twittelumapp.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -12,5 +13,5 @@ interface TweetDao {
     fun salva(tweet: Tweet)
 
     @Query("SELECT * FROM Tweet")
-    fun lista(): List<Tweet>
+    fun lista(): LiveData<List<Tweet>>
 }
