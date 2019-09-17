@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import br.com.caelum.twittelumapp.bancodedados.TwittelumDatabase
+import br.com.caelum.twittelumapp.dao.TweetDao
+import br.com.caelum.twittelumapp.modelo.Tweet
 import kotlinx.android.synthetic.main.activity_tweet.*
 
 class TweetActivity : AppCompatActivity() {
@@ -31,8 +34,12 @@ class TweetActivity : AppCompatActivity() {
     }
 
     private fun publicaTweet() {
-        val tweet = mensagem.text.toString()
-        Toast.makeText(this, tweet, Toast.LENGTH_LONG).show()
+        val mensagem = mensagem.text.toString()
+        val tweet = Tweet(mensagem)
+
+        val tweetDao = TwittelumDatabase.getInstance(this).tweetDao()
+        tweetDao.salva(tweet)
+        Toast.makeText(this, "$tweet foi salvo", Toast.LENGTH_LONG).show()
         finish()
     }
 
